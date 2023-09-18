@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+
+{% block body %}
+
+<article class="card mb-4">
+<div class="card mx-auto" style="max-width: 520px; margin-top: 40px">
+	<a class="btn btn-info " href="#">  Enter Patient Details  </a>
+	<div class="card-body">
+		
+	  <form action="" method="POST">
+		{% csrf_token %}
+		<div class="form-row">
+			<div class="col form-group">
+			  <label for="">Patient Name</label>
+			</br>
+			  {{form.first_name}}
+			</div>
+			<div class="col form-group">
+			  <label for="">Patient Id</label>
+			</br>
+			  {{form.patient_id}}
+			</div>
+		  </div>
+		  <div class="form-row">
+			<div class="col form-group">
+			  <label for="">Age</label>
+			</br>
+				{{form.age}}
+			</div>
+			<div class="col form-group">
+			  <label for="">Phone Number</label>
+			</br>
+			  {{form.phone}}
+			</div>
+		  </div>
+		  <div class="form-row">
+			<div class="col form-group">
+			  <label for="">Gender</label>
+			</br>
+			  {{form.gender}}
+			</div>
+			 <div class="col form-group">
+			<label for="">Category</label>
+		</br> {{form.category}}
+			</div>
+		  </div>
+		  <div class="form-row">
+			<div class="col form-group">
+			  <label for="">Address</label>
+			</br> 
+				{{form.address}}
+			</div>
+			<div class="col form-group">
+			  <label for="">Description</label></br>
+			  {{form.description}}
+			</div>
+		</div>
+		<button class="btn btn-info" type="submit">Submit</button> 
+  
+	</div>
+  </div> 
+</article> <!-- card.// -->
+
+{% endblock body %}
+
+
+

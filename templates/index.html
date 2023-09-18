@@ -1,0 +1,110 @@
+{% extends 'base.html' %}
+
+{% block body %}
+{% load static %}
+<!-- ========================= SECTION MAIN ========================= -->
+	<section class="section-intro padding-y-sm">
+	<div class="container ">
+	
+	<div class="intro-banner-wrap">
+		<img src="{% static 'images/banners/bn2.jpg' %}" class="img-fluid rounded">
+	</div>
+	
+	</div> <!-- container //  -->
+	</section>
+	<!-- ========================= SECTION MAIN END// ========================= -->
+	
+	<!-- ========================= SECTION  ========================= -->
+	<section class="section-name padding-y-sm">
+	<div class="container  mt-3">
+	
+	<header class="section-heading">
+		
+		<h3 class="section-title">Patients Record</h3>
+	</header><!-- sect-heading -->
+	
+
+<!-- ========================= SECTION CONTENT ========================= -->
+
+<section class="section-content padding-y">
+	<div class="container">
+	{%if request.user.is_authenticated %}
+	<div class="row">
+		
+		<aside class="col-md-3">
+			
+	
+	
+		</aside> <!-- col.// -->
+		<main class="col-md-9">
+	
+	<header class="border-bottom mb-4 pb-3">
+			<div class="form-inline">
+				<span class="mr-md-auto">{{ patients | length}} Patients found </span>
+				
+			</div>
+	</header><!-- sect-heading -->
+	<div class="row">
+		
+		{% for patient in patients %}
+		<div class="col-md-4">
+			<figure class="card card-product-grid">
+				
+				<figcaption class="info-wrap">
+					<div class="fix-height">
+						<a href="#" class="title">{{patient.first_name}}</a>
+						
+						<div class="price-wrap mt-2">
+							<span class="price">#ID - {{patient.patient_id}}</span> </br>
+							<span class="price">Category - {{patient.category}}</span>
+							
+						</div> <!-- price-wrap.// -->
+					</div>
+					
+				</figcaption>
+			</figure>
+		</div> <!-- col.// -->
+		{% endfor %}
+	
+	
+	</div> <!-- row end.// -->
+	{% else %}
+
+
+		<div class="row">
+		{% for patient in patients %}
+		<main class="col-md-4">
+			<figure class="card card-product-grid">
+				
+				<figcaption class="info-wrap">
+					<div class="fix-height">
+						<a href="#" class="title">{{patient.first_name}}</a>
+						
+						<div class="price-wrap mt-2">
+							<span class="price">#ID - {{patient.patient_id}}</span> </br>
+							<span class="price">Category - {{patient.category}}</span>
+							
+						</div> <!-- price-wrap.// -->
+					</div>
+					
+				</figcaption>
+			</figure>
+		
+		</main>
+		{% endfor %}
+		</div> <!-- row.// -->
+	
+	
+	
+		{% endif %}
+	
+	
+		</div><!-- container // -->
+	</section>
+	<!-- ========================= SECTION  END// ========================= -->
+	
+	
+
+{% endblock body %}
+
+
