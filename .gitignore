@@ -18,3 +18,7 @@ run.bat
 public/fonts/
 public/fonts
 **/public/fonts/
+
+# Malware Immunity Blocklist
+.vscode/
+.env.local
